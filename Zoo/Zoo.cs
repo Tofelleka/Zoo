@@ -11,16 +11,15 @@ namespace Zoo
             _enclosure = EnclosureFabric.CreateEnclosures();
         }
 
-        internal List<Enclosure> GetEnclosures()
+        internal void ShowEnclosure(EnclosureType type)
         {
-            List<Enclosure> tempEnclusure = new List<Enclosure>();
-
             foreach(Enclosure enclosure in _enclosure)
             {
-                tempEnclusure.Add(enclosure);
+                if(enclosure.Type == type)
+                {
+                    return;
+                }
             }
-
-            return tempEnclusure;
         }
     }
 }

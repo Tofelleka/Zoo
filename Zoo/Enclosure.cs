@@ -8,13 +8,15 @@ namespace Zoo
 
         private List<Animal> _animals;
 
-        internal Enclosure(string name, string discription, List<Animal> animals)
+        internal Enclosure(EnclosureType type, string name, string discription, List<Animal> animals)
         {
+            Type = type;
             Name = name;
             Description = discription;
             _animals = animals;
         }
 
+        public EnclosureType Type {  get; private set; }
         public string Name { get;private set; }
         public string Description { get; private set; }
 
