@@ -40,11 +40,6 @@ namespace Zoo
             return tempAnimals;
         }
 
-        internal int CountAnimals()
-        {
-            return _animals.Count;
-        }
-
         internal int CountByGender(Gender gender)
         {
             int count = 0;
