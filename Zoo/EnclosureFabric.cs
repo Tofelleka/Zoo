@@ -5,8 +5,8 @@ namespace Zoo
 {
     internal static class EnclosureFabric
     {
-        private static List<(EnclosureType enclosureType, AnimalType animalType, string name, string discription)> _enclosures =
-            new List<(EnclosureType enclosureType, AnimalType animalType, string name, string discription)>
+        private static List<(EnclosureType enclosureType, AnimalType animalType, string name, string description)> _enclosures =
+            new List<(EnclosureType enclosureType, AnimalType animalType, string name, string description)>
         {
             { (EnclosureType.Savannah, AnimalType.Leon, "Саванна", "Жаркая саванна с хищными кошками." )},
             { (EnclosureType.Forest, AnimalType.Wolf, "Лес", "Густой лес с волками." )},
@@ -46,7 +46,7 @@ namespace Zoo
         {
             var data = _enclosures[number];
 
-            return new Enclosure(data.enclosureType,data.name, data.discription, new List<Animal>());
+            return new Enclosure(data.enclosureType,data.name, data.description, new List<Animal>());
         }
 
         private static Animal GetAnimal(AnimalType type)

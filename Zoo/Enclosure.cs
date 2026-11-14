@@ -8,11 +8,11 @@ namespace Zoo
 
         private List<Animal> _animals;
 
-        internal Enclosure(EnclosureType type, string name, string discription, List<Animal> animals)
+        internal Enclosure(EnclosureType type, string name, string description, List<Animal> animals)
         {
             Type = type;
             Name = name;
-            Description = discription;
+            Description = description;
             _animals = animals;
         }
 

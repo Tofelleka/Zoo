@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Zoo
 {
@@ -15,42 +16,62 @@ namespace Zoo
 
         internal void Run()
         {
-
-
-            switch (GetEnclosureType())
-            {
-                case EnclosureType.Savannah:
-                    break;
-
-                case EnclosureType.Forest:
-                    break;
-
-                case EnclosureType.Pond:
-                    break;
-
-                case EnclosureType.Suburb:
-                    break;
-
-                default:
-                    throw new ArgumentException();
-            }
-        }
-
-        private EnclosureType GetEnclosureType()
-        {
             bool isWork = true;
 
             while (isWork)
             {
-                int userInput = Utils.ReadNumber() - 1;
+                List<string> enclosureLines = new List<string>();
+                List<Enclosure> enclosures = _zoo.GetEnclosures();
 
-                if (Enum.IsDefined(typeof(EnclosureType), userInput))
+                for (int i = 0; i < enclosures.Count; i++)
                 {
-                    return (EnclosureType)userInput;
+                    enclosureLines.Add($"  {i + 1} - {enclosures[i].Name}");
+                }
+
+                List<string> menuLines = new List<string>
+                {
+                    $"  {ExitCommand} - Выйти из зоопарка",
+                    "",
+                    "  Введите номер вольера:"
+                };
+
+                Illustrator.ShowMainMenu(enclosureLines, menuLines);
+
+                int userInput = Utils.ReadNumber();
+
+                if (userInput == ExitCommand)
+                {
+                    isWork = false;
+                    break;
+                }
+
+                int index = userInput - 1;
+
+                if (index >= 0 && index < enclosures.Count)
+                {
+                    VisitEnclosure(enclosures[index]);
+                }
+                else
+                {
+                    Illustrator.ShowErrorInputText();
                 }
             }
+        }
 
-            return EnclosureType.Forest;
+        private void VisitEnclosure(Enclosure enclosure)
+        {
+            List<string> animalLines = new List<string>();
+
+            foreach (Animal animal in enclosure.GetAnimals())
+            {
+                string genderStr = animal.Gender == Gender.Male ? "Самец" : "Самка";
+                animalLines.Add($"  - {animal.Name} ({genderStr}) издает звук: {animal.Sound}");
+            }
+
+            int males = enclosure.CountByGender(Gender.Male);
+            int females = enclosure.CountByGender(Gender.Female);
+
+            Illustrator.ShowEnclosureInfo(enclosure.Name, enclosure.Description, animalLines, males, females);
         }
     }
 }

@@ -16,9 +16,10 @@
 
     public enum EnclosureType
     {
-        Savannah = 0,
-        Forest = 1,
-        Pond = 2,
-        Suburb = 3
+        Exit = 0,
+        Savannah = 1,
+        Forest = 2,
+        Pond = 3,
+        Suburb = 4
     }
 }
