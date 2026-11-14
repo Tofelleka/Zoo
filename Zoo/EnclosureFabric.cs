@@ -26,9 +26,11 @@ namespace Zoo
 
             for (int i = 0; i < _enclosures.Count; i++)
             {
+                int quntityAnimals = Utils.GetRandomNumber(1, Enclosure.Capacity + 1);
+
                 Enclosure temp = GetEnclosure(i);
 
-                for (int j = 0; j < Utils.GetRandomNumber(1, Enclosure.Capacity + 1); j++)
+                for (int j = 0; j < quntityAnimals; j++)
                 {
                     temp.AddAnimal(GetAnimal(_enclosures[i].type));
                 }
