@@ -11,12 +11,12 @@ namespace Zoo
         internal Enclosure(string name, string discription, List<Animal> animals)
         {
             Name = name;
-            Discription = discription;
+            Description = discription;
             _animals = animals;
         }
 
         public string Name { get;private set; }
-        public string Discription { get; private set; }
+        public string Description { get; private set; }
 
         internal void AddAnimal(Animal animal)
         {
@@ -40,7 +40,7 @@ namespace Zoo
             return _animals.Count;
         }
 
-        internal int CountByGender(Genders gender)
+        internal int CountByGender(Gender gender)
         {
             int count = 0;
 

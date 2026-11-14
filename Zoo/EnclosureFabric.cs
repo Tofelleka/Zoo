@@ -5,19 +5,19 @@ namespace Zoo
 {
     internal static class EnclosureFabric
     {
-        private static List<(AnimalType type, string name, string discription)> _enclosures = new List<(AnimalType typpe, string name, string discription)>
+        private static List<(AnimalType type, string name, string discription)> _enclosures = new List<(AnimalType type, string name, string discription)>
         {
             { (AnimalType.Leon, "Саванна", "Жаркая саванна с хищными кошками." )},
             { (AnimalType.Wolf, "Лес", "Густой лес с волками." )},
             { (AnimalType.Drake, "Пруд", "Водоём с птицами." )},
             { (AnimalType.Crow, "Пригороод", "Пригородный участок с воронами." )}
         };
-        private static Dictionary<AnimalType, (string name, Genders gender, string sound)> _animalCatalog = new Dictionary<AnimalType, (string name, Genders gender, string sound)>
+        private static Dictionary<AnimalType, (string name, string sound)> _animalCatalog = new Dictionary<AnimalType, (string name, string sound)>
         {
-            {AnimalType.Leon ,("Лев", (Genders)Utils.GetRandomNumber(0,Enum.GetValues(typeof(Genders)).Length), "Р-р-р!")},
-            {AnimalType.Wolf ,("Волк", (Genders)Utils.GetRandomNumber(0,Enum.GetValues(typeof(Genders)).Length), "Аууууууфф")},
-            {AnimalType.Drake ,("Селезень", (Genders)Utils.GetRandomNumber(0,Enum.GetValues(typeof(Genders)).Length), "Кря-кря")},
-            {AnimalType.Crow ,("Ворона", (Genders)Utils.GetRandomNumber(0,Enum.GetValues(typeof(Genders)).Length), "Кар-кар")}
+            {AnimalType.Leon ,("Лев", "Р-р-р!")},
+            {AnimalType.Wolf ,("Волк", "Аууууууфф")},
+            {AnimalType.Drake ,("Селезень", "Кря-кря")},
+            {AnimalType.Crow ,("Ворона", "Кар-кар")}
         };
 
         internal static List<Enclosure> CreateEnclosures()
@@ -28,9 +28,9 @@ namespace Zoo
             {
                 Enclosure temp = GetEnclosure(i);
 
-                for (int j = 0; j < Utils.GetRandomNumber(1,enclosures.Capacity); j++)
+                for (int j = 0; j < Utils.GetRandomNumber(1,Enclosure.Capasity); j++)
                 {
-                    GetAnimal(_enclosures[i].type);
+                    temp.AddAnimal(GetAnimal(_enclosures[i].type));
                 }
 
                 enclosures.Add(temp);
@@ -50,7 +50,7 @@ namespace Zoo
         {
             var data = _animalCatalog[type];
 
-            return new Animal(data.name, data.gender, data.sound);
+            return new Animal(data.name, (Gender)Utils.GetRandomNumber(0, Enum.GetValues(typeof(Gender)).Length), data.sound);
         }
     }
 

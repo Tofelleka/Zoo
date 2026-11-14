@@ -30,7 +30,7 @@ namespace Zoo
 
         public static int GetRandomNumber(int maxNumber, int minNumber)
         {
-            return _random.Next(minNumber, maxNumber + 1);
+            return _random.Next(minNumber, maxNumber);
         }
     }
 }

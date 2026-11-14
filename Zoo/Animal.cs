@@ -2,7 +2,7 @@
 {
     internal class Animal
     {
-        internal Animal(string name, Genders gender, string sound)
+        internal Animal(string name, Gender gender, string sound)
         {
             Name = name;
             Gender = gender;
@@ -10,11 +10,11 @@
         }
 
         public string Name { get; private set; }
-        public Genders Gender { get; private set; }
+        public Gender Gender { get; private set; }
         public string Sound { get; private set; }
     }
 
-    public enum Genders
+    public enum Gender
     {
         Female = 0,
         Male = 1
