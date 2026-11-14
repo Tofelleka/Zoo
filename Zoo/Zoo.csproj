@@ -46,6 +46,7 @@
     <Compile Include="Animal.cs" />
     <Compile Include="Enclosure.cs" />
     <Compile Include="EnclosureFabric.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Illustrator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

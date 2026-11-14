@@ -13,10 +13,4 @@
         public Gender Gender { get; private set; }
         public string Sound { get; private set; }
     }
-
-    public enum Gender
-    {
-        Female = 0,
-        Male = 1
-    }
 }

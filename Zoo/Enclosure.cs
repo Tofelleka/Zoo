@@ -4,7 +4,7 @@ namespace Zoo
 {
     internal class Enclosure
     {
-        internal const int Capasity = 10;
+        internal const int Capacity = 10;
 
         private List<Animal> _animals;
 
@@ -20,7 +20,10 @@ namespace Zoo
 
         internal void AddAnimal(Animal animal)
         {
-            _animals.Add(animal);
+            if (Capacity > _animals.Count)
+            {
+                _animals.Add(animal);
+            }
         }
 
         internal List<Animal> GetAnimals()

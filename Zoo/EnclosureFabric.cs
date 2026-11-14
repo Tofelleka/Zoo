@@ -28,7 +28,7 @@ namespace Zoo
             {
                 Enclosure temp = GetEnclosure(i);
 
-                for (int j = 0; j < Utils.GetRandomNumber(1,Enclosure.Capasity); j++)
+                for (int j = 0; j < Utils.GetRandomNumber(1, Enclosure.Capacity + 1); j++)
                 {
                     temp.AddAnimal(GetAnimal(_enclosures[i].type));
                 }
@@ -52,13 +52,5 @@ namespace Zoo
 
             return new Animal(data.name, (Gender)Utils.GetRandomNumber(0, Enum.GetValues(typeof(Gender)).Length), data.sound);
         }
-    }
-
-    public enum AnimalType
-    {
-        Leon = 0,
-        Wolf = 1,
-        Drake = 2,
-        Crow = 3
     }
 }

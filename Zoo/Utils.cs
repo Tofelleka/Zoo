@@ -28,7 +28,7 @@ namespace Zoo
             return numberForReturn;
         }
 
-        public static int GetRandomNumber(int maxNumber, int minNumber)
+        public static int GetRandomNumber(int minNumber, int maxNumber)
         {
             return _random.Next(minNumber, maxNumber);
         }
