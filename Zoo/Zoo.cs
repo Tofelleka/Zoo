@@ -4,7 +4,7 @@ namespace Zoo
 {
     internal class Zoo
     {
-        List<Enclosure> _enclosures;
+        private List<Enclosure> _enclosures;
 
         internal Zoo()
         {
